@@ -40,4 +40,5 @@ packer.startup(function(use)
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
   }
+  use { 'neoclide/coc.nvim', branch = 'release' }
 end)

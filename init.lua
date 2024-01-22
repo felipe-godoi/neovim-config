@@ -21,6 +21,7 @@ require("git-config")
 require("nvim-tree-config")
 require("autoclose").setup()
 require("typescript-tools-config")
+require("coc-config")
 require("keymaps")
 
 vim.cmd 'colorscheme material'
