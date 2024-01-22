@@ -35,5 +35,9 @@ packer.startup(function(use)
   }
   use { 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
   use 'ojroques/nvim-osc52'
-  use 'mfussenegger/nvim-lint'
+  use {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  }
 end)

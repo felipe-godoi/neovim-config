@@ -20,7 +20,6 @@ require("fzf-lua-config")
 require("git-config")
 require("nvim-tree-config")
 require("autoclose").setup()
-require("lsp-config")
 require("keymaps")
 
 vim.cmd 'colorscheme material'
