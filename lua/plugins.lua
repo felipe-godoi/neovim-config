@@ -35,5 +35,5 @@ packer.startup(function(use)
   }
   use { 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
   use 'ojroques/nvim-osc52'
-  use 'dense-analysis/ale'
+  use 'mfussenegger/nvim-lint'
 end)
