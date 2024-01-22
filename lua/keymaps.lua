@@ -15,3 +15,8 @@ vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>
 
 -- toggle NvimTreeTroggle
 vim.keymap.set('n', 'T', "<cmd>:NvimTreeToggle<CR>", { silent = true })
+
+-- nvim-osc52 clipboard mappings
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('v', '<leader>y', require('osc52').copy_visual)

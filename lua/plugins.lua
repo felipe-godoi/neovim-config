@@ -34,4 +34,5 @@ packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   }
   use { 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
+  use { 'ojroques/nvim-osc52' }
 end)
