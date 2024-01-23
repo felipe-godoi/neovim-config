@@ -13,6 +13,9 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.g.material_style = "palenight"
 
+-- set filename on title
+vim.opt.title = true
+
 require("plugins")
 require("material-config")
 require("treesitter-config")
@@ -22,6 +25,9 @@ require("nvim-tree-config")
 require("autoclose").setup()
 require("typescript-tools-config")
 require("coc-config")
+require('Comment').setup()
+require("lspconfig").angularls.setup({})
+require('lualine-config')
 require("keymaps")
 
 vim.cmd 'colorscheme material'

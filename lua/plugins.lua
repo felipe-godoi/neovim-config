@@ -33,7 +33,6 @@ packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
-  use { 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
   use 'ojroques/nvim-osc52'
   use {
     "pmizio/typescript-tools.nvim",
@@ -41,4 +40,15 @@ packer.startup(function(use)
     opts = {},
   }
   use { 'neoclide/coc.nvim', branch = 'release' }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+  use 'leafgarland/typescript-vim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 end)
