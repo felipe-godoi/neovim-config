@@ -11,23 +11,32 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.g.material_style = "palenight"
 
 -- set filename on title
 vim.opt.title = true
 
 require("plugins")
-require("material-config")
+require("keymaps")
+require("nvim-tree-config")
+require("nvim-cmp-config")
 require("treesitter-config")
 require("fzf-lua-config")
 require("git-config")
 require("nvim-tree-config")
 require("autoclose").setup()
-require("typescript-tools-config")
-require("coc-config")
-require('Comment').setup()
-require("lspconfig").angularls.setup({})
-require('lualine-config')
-require("keymaps")
+require("Comment").setup({ ignore = "^$" })
+require("lualine-config")
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = { "tsserver", "eslint" },
+})
+require("formatter-config")
+require("lsp-config")
 
-vim.cmd 'colorscheme material'
+vim.api.nvim_create_augroup("__formatter__", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	group = "__formatter__",
+	command = ":FormatWrite",
+})
+
+vim.cmd("colorscheme dracula")
