@@ -14,6 +14,11 @@ packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- auto complete
 	use("hrsh7th/nvim-cmp") -- auto complete
 	use("hrsh7th/cmp-buffer") -- auto complete
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-nvim-lsp-signature-help")
+	use("hrsh7th/cmp-vsnip")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/vim-vsnip")
 	use("L3MON4D3/LuaSnip") -- provê snippets
 	use("onsails/lspkind.nvim") -- provê ícones para o lsp
 	use("mfussenegger/nvim-jdtls") -- plugin com todas as features do jdtls
@@ -50,4 +55,5 @@ packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("mfussenegger/nvim-lint")
 	use("mhartington/formatter.nvim")
+	use("simrat39/rust-tools.nvim")
 end)
