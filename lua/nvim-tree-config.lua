@@ -19,7 +19,7 @@ require("nvim-tree").setup({
 		icons = {
 			webdev_colors = false,
 			show = {
-				file = false,
+				file = true,
 				folder = true,
 				folder_arrow = false,
 				git = true,

@@ -37,3 +37,7 @@ vim.keymap.set("n", "<leader>ci", "<cmd>FzfLua lsp_implementations<CR>", { silen
 vim.keymap.set("n", "H", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<C-f>", "<cmd>FzfLua lgrep_curbuf<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader><C-f>", "<cmd>FzfLua grep_cword<CR>", { silent = true, noremap = true })
+
+-- scrolling bindings
+vim.keymap.set({ "n", "v" }, "<A-Up>", "<C-y>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "v" }, "<A-Down>", "<C-e>", { silent = true, noremap = true })
