@@ -79,6 +79,9 @@ require("lspconfig")["eslint"].setup({
 require("lspconfig")["angularls"].setup({
 	capabilities = capabilities,
 })
+require("lspconfig")["html"].setup({
+	capabilities = capabilities,
+})
 
 -- Enable inline errors
 vim.lsp.handlers["textDocument/publishDiagnostics"] =

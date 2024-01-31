@@ -47,6 +47,10 @@ require("formatter").setup({
 			require("formatter.filetypes.rust").rustfmt,
 		},
 
+		html = {
+			require("formatter.filetypes.html").prettierd,
+		},
+
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {
