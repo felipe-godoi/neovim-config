@@ -1,3 +1,14 @@
+-- map W to save file
+vim.cmd([[
+    cnoreabbrev W w
+    cnoreabbrev Wq wq
+    cnoreabbrev WQ wq
+    cnoreabbrev Q q
+]])
+
+-- map Ctrl + S to save file
+vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { silent = true })
+
 -- remap leader binding
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
