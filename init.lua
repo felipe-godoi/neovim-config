@@ -40,12 +40,15 @@ require("Comment").setup({ ignore = "^$" })
 require("lualine-config")
 require("mason-config")
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "eslint", "rust_analyzer", "html" },
+	ensure_installed = { "tsserver", "rust_analyzer", "html", "stylua", "eslint-lsp" },
 })
 require("formatter-config")
 require("rust-tools-config")
 require("diagnostics-config")
+require("nvim-ts-autotag").setup()
+require("fidget").setup()
 require("lsp-config")
+require("nvim-ufo-config")
 
 vim.api.nvim_create_augroup("__formatter__", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {

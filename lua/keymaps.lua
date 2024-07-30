@@ -21,6 +21,12 @@ vim.keymap.set("n", "<leader>tw", "<cmd>FzfLua lsp_workspace_diagnostics<CR>", {
 vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-k>", [[<Cmd>lua require"fzf-lua".builtin()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader><C-p>",
+	[[<Cmd>lua require('fzf-lua').files({ cwd = vim.fn.expand('%:p:h') })<CR>]],
+	{}
+)
 vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep_glob()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
@@ -39,7 +45,7 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window 
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
--- bing code actions
+-- bind code actions
 vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>FzfLua lsp_code_actions<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>cr", "<cmd>FzfLua lsp_references<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>ct", "<cmd>FzfLua lsp_typedefs<CR>", { silent = true, noremap = true })
@@ -52,3 +58,34 @@ vim.keymap.set("n", "<leader><C-f>", "<cmd>FzfLua grep_cword<CR>", { silent = tr
 -- scrolling bindings
 vim.keymap.set({ "n", "v" }, "<A-Up>", "<C-y>", { silent = true, noremap = true })
 vim.keymap.set({ "n", "v" }, "<A-Down>", "<C-e>", { silent = true, noremap = true })
+
+-- remap shift arrow to move to end of word instead of next word
+vim.keymap.set({ "n", "v" }, "<S-Right>", "e", { silent = true, noremap = true })
+vim.keymap.set({ "n", "v" }, "<S-Left>", "ge", { silent = true, noremap = true })
+
+-- Copy Json paths keymaps
+local copy_path = require("copy-path")
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "json" },
+	callback = function(args)
+		vim.keymap.set("n", "<leader>cp", function()
+			copy_path.copy_json_path({ register = "+" })
+		end, { buffer = args.buf })
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	callback = function(args)
+		vim.keymap.set("n", "<leader>cp", function()
+			copy_path.copy_javascript_path({ register = "+" })
+		end, { buffer = args.buf })
+	end,
+})
+
+-- LSP Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)

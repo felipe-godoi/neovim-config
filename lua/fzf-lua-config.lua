@@ -1,2 +1,29 @@
-require "fzf-lua".setup { defaults = { git_icons = false } }
-
+require("fzf-lua").setup({
+	defaults = { git_icons = false },
+	winopts = {
+		preview = {
+			vertical = "down:45%", -- A configuração vertical da janela de preview
+			scrollbar = "float", -- Mostrar a scrollbar na janela de preview
+			scroll_fn = function(opts, direction)
+				-- Implementação customizada para rolar a janela de preview
+				if direction > 0 then
+					vim.cmd("normal! j")
+				else
+					vim.cmd("normal! k")
+				end
+			end,
+		},
+	},
+	keymap = {
+		builtin = {
+			-- Define os mapeamentos customizados
+			["<C-j>"] = "preview-down", -- Scroll para baixo
+			["<C-k>"] = "preview-up", -- Scroll para cima
+		},
+		fzf = {
+			-- Define os mapeamentos customizados
+			["ctrl-j"] = "down",
+			["ctrl-k"] = "up",
+		},
+	},
+})
