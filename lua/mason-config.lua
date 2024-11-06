@@ -6,5 +6,5 @@ require("mason").setup({
 			package_uninstalled = "",
 		},
 	},
-    ensure_installed = { "tsserver", "rust_analyzer", "html", "eslint-lsp", "sylua" },
+	ensure_installed = { "rust_analyzer", "html" },
 })

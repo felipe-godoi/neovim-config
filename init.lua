@@ -40,7 +40,7 @@ require("Comment").setup({ ignore = "^$" })
 require("lualine-config")
 require("mason-config")
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "rust_analyzer", "html", "stylua", "eslint-lsp" },
+	ensure_installed = { "rust_analyzer", "html" },
 })
 require("formatter-config")
 require("rust-tools-config")
