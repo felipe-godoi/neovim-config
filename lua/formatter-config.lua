@@ -39,16 +39,27 @@ require("formatter").setup({
 			end,
 		},
 
-		typescript = {
-			require("formatter.filetypes.typescript").prettierd,
-		},
-
-		rust = {
-			require("formatter.filetypes.rust").rustfmt,
-		},
-
 		html = {
-			require("formatter.filetypes.html").prettierd,
+			require("formatter.defaults.prettierd"),
+		},
+
+		css = {
+			require("formatter.defaults.prettierd"),
+		},
+
+		typescript = {
+			require("formatter.defaults.prettierd"),
+			require("formatter.defaults.eslint_d"),
+		},
+
+		typescriptreact = {
+			require("formatter.defaults.prettierd"),
+			require("formatter.defaults.eslint_d"),
+		},
+
+		javascript = {
+			require("formatter.defaults.prettierd"),
+			require("formatter.defaults.eslint_d"),
 		},
 
 		-- Use the special "*" filetype for defining formatter configurations on
@@ -57,6 +68,21 @@ require("formatter").setup({
 			-- "formatter.filetypes.any" defines default configurations for any
 			-- filetype
 			require("formatter.filetypes.any").remove_trailing_whitespace,
+			-- Remove trailing whitespace without 'sed'
+			-- require("formatter.filetypes.any").substitute_trailing_whitespace,
 		},
 	},
+})
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+augroup("__formatter__", { clear = true })
+autocmd("BufWritePost", {
+	group = "__formatter__",
+	callback = function()
+		vim.cmd("FormatLock")
+		vim.defer_fn(function()
+			vim.cmd("noautocmd w")
+		end, 1000)
+	end,
 })

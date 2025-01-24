@@ -67,19 +67,30 @@ cmp.setup.cmdline({ "/", "?" }, {
 	},
 })
 
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+	matching = { disallow_symbol_nonprefix_matching = false },
+})
+
 -- Set up lspconfig.
+local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require("lspconfig")["ts_ls"].setup({
+
+lspconfig["ts_ls"].setup({
 	capabilities = capabilities,
 })
-require("lspconfig")["eslint"].setup({
+lspconfig["eslint"].setup({
 	capabilities = capabilities,
 })
-require("lspconfig")["angularls"].setup({
+lspconfig["angularls"].setup({
 	capabilities = capabilities,
 })
-require("lspconfig")["html"].setup({
+lspconfig["html"].setup({
 	capabilities = capabilities,
 })
 

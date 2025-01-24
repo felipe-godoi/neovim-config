@@ -26,6 +26,13 @@ vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option("updatetime", 300)
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = vim.api.nvim_create_augroup("TS_OrganizeImports", { clear = true }),
+	desc = "TS_OrganizeImports",
+	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+	command = "TSToolsOrganizeImports sync",
+})
+
 require("plugins")
 require("keymaps")
 require("auto-save-config")
@@ -42,18 +49,13 @@ require("mason-config")
 require("mason-lspconfig").setup({
 	ensure_installed = { "rust_analyzer", "html" },
 })
-require("formatter-config")
 require("rust-tools-config")
 require("diagnostics-config")
 require("nvim-ts-autotag").setup()
 require("fidget").setup()
 require("lsp-config")
 require("nvim-ufo-config")
-
-vim.api.nvim_create_augroup("__formatter__", { clear = true })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	group = "__formatter__",
-	command = ":FormatWrite",
-})
+require("formatter-config")
+require("typescript-tools").setup({})
 
 vim.cmd("colorscheme dracula")
