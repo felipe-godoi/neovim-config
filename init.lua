@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = vim.api.nvim_create_augroup("TS_OrganizeImports", { clear = true }),
 	desc = "TS_OrganizeImports",
 	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-	command = "TSToolsOrganizeImports sync",
+	command = "lua organize_imports()",
 })
 
 require("plugins")
@@ -40,7 +40,6 @@ require("nvim-tree-config")
 require("nvim-cmp-config")
 require("treesitter-config")
 require("fzf-lua-config")
-require("git-config")
 require("nvim-tree-config")
 require("autoclose").setup()
 require("Comment").setup({ ignore = "^$" })
@@ -56,6 +55,6 @@ require("fidget").setup()
 require("lsp-config")
 require("nvim-ufo-config")
 require("formatter-config")
-require("typescript-tools").setup({})
+require("functions/organize-imports")
 
 vim.cmd("colorscheme dracula")
