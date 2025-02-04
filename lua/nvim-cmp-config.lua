@@ -93,9 +93,6 @@ lspconfig["angularls"].setup({
 lspconfig["html"].setup({
 	capabilities = capabilities,
 })
-lspconfig["emmet_ls"].setup({
-	capabilities = capabilities,
-})
 
 -- Enable inline errors
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
