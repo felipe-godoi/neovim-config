@@ -1,5 +1,8 @@
 require("fzf-lua").setup({
 	defaults = { git_icons = false },
+	files = {
+		hidden = true,
+	},
 	winopts = {
 		preview = {
 			vertical = "down:45%", -- A configuração vertical da janela de preview
