@@ -16,11 +16,13 @@ require("fzf-lua").setup({
 	},
 	keymap = {
 		builtin = {
+			true,
 			-- Define os mapeamentos customizados
 			["<C-j>"] = "preview-down", -- Scroll para baixo
 			["<C-k>"] = "preview-up", -- Scroll para cima
 		},
 		fzf = {
+			true,
 			-- Define os mapeamentos customizados
 			["ctrl-j"] = "down",
 			["ctrl-k"] = "up",
