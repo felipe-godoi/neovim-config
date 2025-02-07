@@ -3,6 +3,24 @@
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+		if client.name == "ts_ls" then
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = vim.api.nvim_create_augroup("TS_OrganizeImports", { clear = true }),
+				desc = "TS_OrganizeImports",
+				command = "lua organize_imports()",
+			})
+		end
+
+		if client.name == "prismals" then
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = vim.api.nvim_create_augroup("Prisma_FMT", { clear = true }),
+				desc = "TS_OrganizeImports",
+	command = "lua vim.lsp.buf.format({ async = false })",
+			})
+		end
+
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }

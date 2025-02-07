@@ -26,13 +26,6 @@ vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option("updatetime", 300)
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	group = vim.api.nvim_create_augroup("TS_OrganizeImports", { clear = true }),
-	desc = "TS_OrganizeImports",
-	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-	command = "lua organize_imports()",
-})
-
 require("plugins")
 require("keymaps")
 require("auto-save-config")

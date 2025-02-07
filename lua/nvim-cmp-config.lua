@@ -93,6 +93,9 @@ lspconfig["angularls"].setup({
 lspconfig["html"].setup({
 	capabilities = capabilities,
 })
+lspconfig["prismals"].setup({
+	capabilities = capabilities,
+})
 
 -- Enable inline errors
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
