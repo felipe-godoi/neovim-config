@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("TS_OrganizeImports", { clear = true }),
 				desc = "TS_OrganizeImports",
 				command = "lua organize_imports()",
+				pattern = "*.ts,*.tsx,*.js,*.jsx",
 			})
 		end
 
@@ -17,7 +18,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = vim.api.nvim_create_augroup("Prisma_FMT", { clear = true }),
 				desc = "TS_OrganizeImports",
-	command = "lua vim.lsp.buf.format({ async = false })",
+				command = "lua vim.lsp.buf.format({ async = false })",
+				pattern = "*.prisma",
 			})
 		end
 

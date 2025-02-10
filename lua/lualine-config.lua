@@ -23,11 +23,12 @@ require("lualine").setup({
 		lualine_c = { "filename" },
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "location" },
-		lualine_z = {
-			function()
-				return " " .. os.date("%R")
-			end,
-		},
+		lualine_z = {},
+		-- lualine_z = {
+		-- 	function()
+		-- 		return " " .. os.date("%R")
+		-- 	end,
+		-- },
 	},
 	inactive_sections = {
 		lualine_a = {},
