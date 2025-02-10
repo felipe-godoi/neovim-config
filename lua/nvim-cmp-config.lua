@@ -96,6 +96,9 @@ lspconfig["html"].setup({
 lspconfig["prismals"].setup({
 	capabilities = capabilities,
 })
+lspconfig["elixirls"].setup({
+	capabilities = capabilities,
+})
 
 -- Enable inline errors
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
