@@ -51,8 +51,9 @@ packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
-	use("dracula/vim")
-	use("williamboman/mason.nvim")
+	-- use("dracula/vim")
+	use({ "catppuccin/nvim", as = "neovim" })	
+  use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("simrat39/rust-tools.nvim")
 	use("Pocco81/auto-save.nvim")

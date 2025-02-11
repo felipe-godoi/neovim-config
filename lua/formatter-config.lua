@@ -62,6 +62,10 @@ require("formatter").setup({
 			require("formatter.defaults.eslint_d"),
 		},
 
+		elixir = {
+			require("formatter.defaults.mixformat"),
+		},
+
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

@@ -49,5 +49,6 @@ require("lsp-config")
 require("nvim-ufo-config")
 require("formatter-config")
 require("functions/organize-imports")
+require("catppuccin").setup({ flavour = "macchiato" })
 
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme catppuccin")
