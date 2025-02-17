@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, { expr = true }
 vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
 vim.keymap.set("v", "<leader>y", require("osc52").copy_visual)
 vim.keymap.set("v", "<leader>y", require("osc52").copy_visual)
-vim.keymap.set("v", "<leader>y", "\"+y", { silent = true, remap = false })
+vim.keymap.set("v", "<leader>y", '"+y', { silent = true, remap = false })
 
 -- resize window using <ctrl> arrow keys
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -64,6 +64,12 @@ vim.keymap.set({ "n", "v" }, "<A-Down>", "<C-e>", { silent = true, noremap = tru
 -- remap shift arrow to move to end of word instead of next word
 vim.keymap.set({ "n", "v" }, "<S-Right>", "e", { silent = true, noremap = true })
 vim.keymap.set({ "n", "v" }, "<S-Left>", "ge", { silent = true, noremap = true })
+
+-- map <leader>l to toggle relative line numbers
+vim.keymap.set("n", "<leader>l", "<cmd>set relativenumber!<CR>", { silent = true })
+
+-- map <leader>h to toggle highlight search
+vim.keymap.set("n", "<leader>h", "<cmd>set hlsearch!<CR>", { silent = true })
 
 -- Copy Json paths keymaps
 local copy_path = require("copy-path")
