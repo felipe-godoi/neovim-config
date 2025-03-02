@@ -97,3 +97,10 @@ vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
+-- GitDiffview Mappings
+vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gr", "<cmd>DiffviewRefresh<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewToggleFiles<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory<CR>", { silent = true })

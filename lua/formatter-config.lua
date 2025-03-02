@@ -1,6 +1,26 @@
 -- Utilities for creating configurations
 local util = require("formatter.util")
 
+local function eslint_d_if_available()
+	local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+	for _, file in ipairs(files) do
+		if vim.fn.filereadable(vim.fn.getcwd() .. "/" .. file) == 1 then
+			return {
+				exe = "eslint_d",
+				args = {
+					"--stdin",
+					"--stdin-filename",
+					util.escape_path(util.get_current_buffer_file_path()),
+					"--fix-to-stdout",
+				},
+				stdin = true,
+				try_node_modules = true,
+			}
+		end
+	end
+	return
+end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
@@ -49,17 +69,17 @@ require("formatter").setup({
 
 		typescript = {
 			require("formatter.defaults.prettierd"),
-			require("formatter.defaults.eslint_d"),
+			eslint_d_if_available,
 		},
 
 		typescriptreact = {
 			require("formatter.defaults.prettierd"),
-			require("formatter.defaults.eslint_d"),
+			eslint_d_if_available,
 		},
 
 		javascript = {
 			require("formatter.defaults.prettierd"),
-			require("formatter.defaults.eslint_d"),
+			eslint_d_if_available,
 		},
 
 		elixir = {
