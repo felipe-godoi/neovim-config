@@ -12,6 +12,7 @@ vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { silent = true })
 -- remap leader binding
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- toggle trouble window
 vim.keymap.set("n", "<leader>td", "<cmd>FzfLua lsp_document_diagnostics<CR>", { silent = true, remap = false })

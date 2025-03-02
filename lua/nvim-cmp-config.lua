@@ -29,6 +29,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 2 }, -- source current buffer
 		{ name = "vsnip", keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
 		{ name = "calc" },
+		-- { name = "conjure" },
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
@@ -48,6 +49,14 @@ cmp.setup({
 			return item
 		end,
 	},
+})
+
+cmp.setup.filetype("scheme", {
+	sources = cmp.config.sources({
+		{ name = "conjure" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+	}, {
+		{ name = "buffer" },
+	}),
 })
 
 -- Set configuration for specific filetype.

@@ -137,7 +137,7 @@ _G.packer_plugins = {
   },
   ["diffview.nvim"] = {
     loaded = true,
-    path = "/home/felipe/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    path = "/root/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
   ["fidget.nvim"] = {
@@ -162,7 +162,7 @@ _G.packer_plugins = {
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/home/felipe/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    path = "/root/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lazygit.nvim"] = {
@@ -197,7 +197,7 @@ _G.packer_plugins = {
   },
   neovim = {
     loaded = true,
-    path = "/home/felipe/.local/share/nvim/site/pack/packer/start/neovim",
+    path = "/root/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
