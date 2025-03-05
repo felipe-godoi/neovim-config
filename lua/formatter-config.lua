@@ -86,6 +86,10 @@ require("formatter").setup({
 			require("formatter.defaults.mixformat"),
 		},
 
+		rust = {
+			require("formatter.filetypes.rust").rustfmt,
+		},
+
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {
